@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página 4 con animación</title>
+    <style>
+      /* Fondo negro y centrado total */
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Arial", sans-serif;
+        overflow: hidden;
+        color: #fff;
+      }
+
+      /* Título principal "TODAY" que aparece de inmediato */
+      h1 {
+        color: #ff00ff; /* Rosa fucsia puro */
+        font-size: 6rem;
+        margin: 0 0 20px 0;
+        opacity: 0;
+        animation: fadeIn 0.5s ease-out forwards; /* Aparece rápido sin delay */
+        text-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+      }
+
+      /* Contenedor para el texto con efecto typewriter multi-línea */
+      .typewriter {
+        margin: 0 0 40px 0;
+        max-width: 80%;
+        text-align: center;
+      }
+
+      .typewriter p {
+        color: #ff00ff; /* Rosa fucsia puro */
+        font-size: 1.5rem; /* Letras más pequeñas (reducido de 1.8rem) */
+        font-weight: bold;
+        overflow: hidden; /* Oculta el texto hasta la animación */
+        border-right: 0.15em solid #ff00ff; /* Cursor fucsia */
+        white-space: nowrap; /* Mantiene cada línea en una sola */
+        margin: 5px auto; /* Reducido espacio entre líneas para que estén más pegadas */
+        letter-spacing: 0em; /* Letras más pegadas (reducido de .05em a 0) */
+        text-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+        opacity: 0; /* Empieza invisible */
+      }
+
+      /* Animación para cada línea del typewriter */
+      .typewriter p:nth-child(1) {
+        animation: fadeIn 0.5s 0.5s forwards,
+          typing1 1.5s steps(28, end) 1s forwards,
+          blink-caret 0.75s step-end infinite 2.5s;
+      }
+
+      .typewriter p:nth-child(2) {
+        animation: fadeIn 0.5s 2.5s forwards,
+          typing2 1s steps(5, end) 3s forwards,
+          blink-caret 0.75s step-end infinite 4s;
+      }
+
+      .typewriter p:nth-child(3) {
+        animation: fadeIn 0.5s 4s forwards,
+          typing3 1.5s steps(30, end) 4.5s forwards,
+          blink-caret 0.75s step-end infinite 6s;
+      }
+
+      .typewriter p:nth-child(4) {
+        animation: fadeIn 0.5s 6s forwards,
+          typing4 1s steps(12, end) 6.5s forwards,
+          blink-caret 0.75s step-end infinite 7.5s;
+      }
+
+      /* Animaciones de typing por línea (ajustado a chars approx) */
+      @keyframes typing1 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes typing2 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes typing3 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes typing4 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      /* Texto "are u ready" con aparición progresiva */
+      .ready-text {
+        font-size: 1.8rem; /* Reducido ligeramente para consistencia */
+        color: #ff00ff;
+        margin: 0 0 40px 0;
+        opacity: 0;
+        animation: fadeInUp 1.2s ease-out 8s forwards;
+        text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+      }
+
+      /* Contenedor para botones lado a lado */
+      .buttons-container {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 50px;
+        opacity: 0;
+        animation: fadeInUp 1.2s ease-out 9.5s forwards; /* Aparece después del texto */
+      }
+
+      /* Botones fucsia */
+      .btn {
+        padding: 16px 48px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: white;
+        background-color: #ff00ff;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(255, 0, 255, 0.4);
+        transition: all 0.4s ease;
+      }
+
+      /* Efecto hover de botones */
+      .btn:hover {
+        background-color: #ff33ff;
+        transform: translateY(-6px);
+        box-shadow: 0 12px 35px rgba(255, 0, 255, 0.6);
+      }
+
+      .btn:active {
+        transform: translateY(-2px);
+      }
+
+      /* Animación de fade-in para visibilidad */
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Animación de parpadeo del cursor */
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #ff00ff;
+        }
+      }
+
+      /* Animaciones de entrada suaves */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive para móviles (ajustado para iPhone 12 en adelante: botones siempre uno al lado del otro) */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 4rem;
+        }
+        .typewriter p {
+          font-size: 1.2rem; /* Reducido para móviles */
+        }
+        .ready-text {
+          font-size: 1.2rem; /* Reducido para móviles */
+        }
+        .buttons-container {
+          gap: 20px; /* Reducir espacio para que quepan bien */
+        }
+        .btn {
+          padding: 14px 40px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>TODAY</h1>
+
+    <div class="typewriter">
+      <p>we've been together a month,</p>
+      <p>and...</p>
+      <p>i wanted to give u something...</p>
+      <p>different ❤️</p>
+    </div>
+
+    <p class="ready-text">are u ready?</p>
+
+    <div class="buttons-container">
+      <!-- Botón "Sí" - Cambia "pagina-si.html" por la página que quieras -->
+      <a href="sorpresa.html">
+        <button class="btn">Sí</button>
+      </a>
+
+      <a href="index.html">
+        <button class="btn">No</button>
+      </a>
+    </div>
+  </body>
+</html>

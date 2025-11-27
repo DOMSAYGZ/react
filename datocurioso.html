@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página 3 con animación</title>
+    <style>
+      /* Fondo negro y centrado total */
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Arial", sans-serif;
+        overflow: hidden;
+        color: #fff;
+      }
+
+      /* Contenedor para el texto con efecto typewriter multi-línea */
+      .typewriter {
+        margin: 0 0 60px 0;
+        max-width: 80%;
+        text-align: center;
+      }
+
+      .typewriter p {
+        color: #ff00ff; /* Rosa fucsia puro */
+        font-size: 2rem; /* Reducido de 2.5rem a 2rem */
+        font-weight: bold;
+        overflow: hidden; /* Oculta el texto hasta la animación */
+        border-right: 0.15em solid #ff00ff; /* Cursor fucsia */
+        white-space: nowrap; /* Mantiene cada línea en una sola */
+        margin: 10px auto;
+        letter-spacing: 0.05em;
+        text-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+        opacity: 0; /* Empieza invisible */
+      }
+
+      /* Animación para cada línea */
+      .typewriter p:nth-child(1) {
+        animation: fadeIn 0.5s forwards, typing1 1s steps(11, end) 0.5s forwards,
+          blink-caret 0.75s step-end infinite 1.5s;
+      }
+
+      .typewriter p:nth-child(2) {
+        animation: fadeIn 0.5s 1.5s forwards,
+          typing2 1s steps(19, end) 2s forwards,
+          blink-caret 0.75s step-end infinite 3s;
+      }
+
+      .typewriter p:nth-child(3) {
+        animation: fadeIn 0.5s 3s forwards,
+          typing3 1s steps(10, end) 3.5s forwards,
+          blink-caret 0.75s step-end infinite 4.5s;
+      }
+
+      .typewriter p:nth-child(4) {
+        animation: fadeIn 0.5s 4.5s forwards,
+          typing4 1s steps(11, end) 5s forwards,
+          blink-caret 0.75s step-end infinite 6s;
+      }
+
+      .typewriter p:nth-child(5) {
+        animation: fadeIn 0.5s 6s forwards,
+          typing5 1s steps(19, end) 6.5s forwards,
+          blink-caret 0.75s step-end infinite 7.5s;
+      }
+
+      /* Animaciones de typing por línea (ajustado a chars approx) */
+      @keyframes typing1 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes typing2 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes typing3 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes typing4 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes typing5 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      /* Animación de fade-in para visibilidad */
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Animación de parpadeo del cursor */
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #ff00ff;
+        }
+      }
+
+      /* Espacio para imagen (no muy grande, centrada) */
+      .image-placeholder {
+        width: 300px; /* Tamaño no muy grande */
+        height: 200px;
+        margin-bottom: 40px;
+        opacity: 0;
+        animation: fadeInUp 1.2s ease-out 8s forwards; /* Aparece después del texto */
+      }
+
+      /* Contenedor para botones lado a lado */
+      .buttons-container {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 50px;
+        opacity: 0;
+        animation: fadeInUp 1.2s ease-out 9s forwards; /* Aparece después de la imagen */
+      }
+
+      /* Botones fucsia */
+      .btn {
+        padding: 16px 48px;
+        font-size: 1.2rem; /* Reducido de 1.5rem a 1.2rem */
+        font-weight: bold;
+        color: white;
+        background-color: #ff00ff;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(255, 0, 255, 0.4);
+        transition: all 0.4s ease;
+      }
+
+      /* Efecto hover de botones */
+      .btn:hover {
+        background-color: #ff33ff;
+        transform: translateY(-6px);
+        box-shadow: 0 12px 35px rgba(255, 0, 255, 0.6);
+      }
+
+      .btn:active {
+        transform: translateY(-2px);
+      }
+
+      /* Animaciones de entrada suaves para botones e imagen */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive para móviles (ajustado para iPhone 12 en adelante: botones siempre uno al lado del otro) */
+      @media (max-width: 600px) {
+        .typewriter p {
+          font-size: 1.5rem; /* Reducido de 1.8rem a 1.5rem */
+        }
+        .buttons-container {
+          gap: 20px; /* Reducir espacio para que quepan bien */
+        }
+        .btn {
+          padding: 14px 40px;
+          font-size: 1rem; /* Reducido de 1.3rem a 1rem */
+        }
+        .image-placeholder {
+          width: 200px;
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="typewriter">
+      <p>Ok, did u know that...</p>
+      <p>exactly one month ago...</p>
+      <p>(today btw)...</p>
+      <p>u asked me...</p>
+      <p>to be ur boyfriend? ❤️</p>
+    </div>
+
+    <img
+      src="imagenes/mono.jpg"
+      alt="Imagen placeholder"
+      class="image-placeholder"
+    />
+
+    <div class="buttons-container">
+      <a href="preparada.html">
+        <button class="btn">Sí</button>
+      </a>
+      <a href="/imagenes/llorando.jpg">
+        <button class="btn">No</button>
+      </a>
+    </div>
+  </body>
+</html>

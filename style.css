@@ -1,0 +1,107 @@
+/* styles.css */
+
+/* Fondo negro y centrado general */
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Título llamativo con estilo diferente (gradiente y animación) */
+.title {
+  color: transparent;
+  font-size: 4rem;
+  background: linear-gradient(90deg, #ff00ff, #ff69b4, #ff00ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(255, 0, 255, 1);
+  }
+}
+
+/* Espacio debajo del título */
+.spacer {
+  height: 20px; /* Ajusta según necesites más/menos espacio */
+}
+
+/* Párrafo pequeño y estilizado */
+.paragraph {
+  font-size: 1.2rem;
+  color: #ff00ff;
+  text-align: center;
+  margin: 0 0 30px 0;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+  max-width: 80%;
+}
+
+/* Contenedor para elementos 3D (centrado y relativo para posicionamiento) */
+.spline-container {
+  position: relative;
+  width: 80vw;
+  height: 50vh; /* Ajusta el tamaño según tus escenas 3D */
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+/* Elemento 3D de fondo (detrás) */
+.spline-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Detrás */
+}
+
+/* Elemento 3D de frente (delante) */
+.spline-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Delante */
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 1rem;
+  color: #ff00ff;
+  text-align: center;
+  width: 100%;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .paragraph {
+    font-size: 1rem;
+  }
+  .spline-container {
+    width: 90vw;
+    height: 40vh;
+  }
+  .footer {
+    font-size: 0.8rem;
+  }
+}
